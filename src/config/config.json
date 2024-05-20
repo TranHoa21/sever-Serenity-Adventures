@@ -1,25 +1,43 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "hoatran2112 ",
-    "database": "Serenity Adventures",
-    "host": "127.0.0.1",
+    "username": "giaiky",
+    "password": "WcKdKVmZaebiuHcRe7PJgtETR6GyTR2d",
+    "database": "serenityadventures",
+    "host": "dpg-cp5o7o2cn0vc73biidl0-a.oregon-postgres.render.com",
     "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    },
     "logging": false,
     "timezone": "+07:00"
   },
   "test": {
-    "username": "postgres",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "giaiky",
+    "password": "WcKdKVmZaebiuHcRe7PJgtETR6GyTR2d",
+    "database": "serenityadventures",
+    "host": "dpg-cp5o7o2cn0vc73biidl0-a.oregon-postgres.render.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
   "production": {
-    "username": "postgres",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "username": "giaiky",
+    "password": "password",
+    "database": "database",
+    "host": "host",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
