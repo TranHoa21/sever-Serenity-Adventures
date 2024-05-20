@@ -8,7 +8,7 @@ import { Server } from "socket.io";
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 10000;
 
 app.use(express.json());
 app.use(cookieParser());
@@ -95,11 +95,7 @@ io.on("connection", (socket) => {
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'Serenity Adventures',
-    password: 'hoatran2112 ',
-    port: 5432
+    connectionString: process.env.POSTGRES_URL,
 })
 
 pool.connect((err, client, release) => {
