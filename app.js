@@ -13,7 +13,7 @@ const port = process.env.PORT || 10000;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: ['https://clinet-serenity-adventures.vercel.app', 'https://admin-serenity-adventures.vercel.app'],
+    origin: ['https://clinet-serenity-adventures.vercel.app', 'https://admin-serenity-adventures-2yw6gnlcv-tranhoa21s-projects.vercel.app'],
     credentials: true
 }));
 
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ["https://clinet-serenity-adventures.vercel.app", "https://admin-serenity-adventures.vercel.app"],
+        origin: ["https://clinet-serenity-adventures.vercel.app", "https://admin-serenity-adventures-2yw6gnlcv-tranhoa21s-projects.vercel.app"],
         methods: ["GET", "POST"],
         credentials: true
     },
