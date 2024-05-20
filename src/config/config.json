@@ -29,9 +29,9 @@
   },
   "production": {
     "username": "giaiky",
-    "password": "password",
-    "database": "database",
-    "host": "host",
+    "password": "WcKdKVmZaebiuHcRe7PJgtETR6GyTR2d",
+    "database": "serenityadventures",
+    "host": "dpg-cp5o7o2cn0vc73biidl0-a.oregon-postgres.render.com",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
