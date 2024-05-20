@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "hoatran2112 ",
+    "database": "Serenity Adventures",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "logging": false,
+    "timezone": "+07:00"
+  },
+  "test": {
+    "username": "postgres",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
