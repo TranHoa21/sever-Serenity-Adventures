@@ -18,7 +18,9 @@ app.use(cors({
 }));
 
 initRouter(app);
-
+app.get('/', (req, res) => {
+  res.send('server ready!')
+})
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
