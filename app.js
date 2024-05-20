@@ -16,7 +16,9 @@ app.use(cors({
     origin: ['http://localhost:3002', 'http://localhost:3000'],
     credentials: true
 }));
-
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 initRouter(app);
 
 const server = http.createServer(app);
