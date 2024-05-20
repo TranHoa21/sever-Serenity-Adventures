@@ -13,18 +13,16 @@ const port = process.env.PORT || 10000;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: ['http://localhost:3002', 'http://localhost:3000'],
+    origin: ['https://clinet-serenity-adventures.vercel.app', 'https://admin-serenity-adventures.vercel.app'],
     credentials: true
 }));
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+
 initRouter(app);
 
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ["http://localhost:3002", "http://localhost:3000"],
+        origin: ["https://clinet-serenity-adventures.vercel.app", "https://admin-serenity-adventures.vercel.app"],
         methods: ["GET", "POST"],
         credentials: true
     },
@@ -88,7 +86,10 @@ io.on("connection", (socket) => {
     });
 
     socket.on("disconnect", () => {
-        delete userSocketMap[userId];
+        const disconnectedUserId = Object.keys(userSocketMap).find(key => userSocketMap[key] === socket.id);
+        if (disconnectedUserId) {
+            delete userSocketMap[disconnectedUserId];
+        }
         io.emit("getOnlineUsers", Object.keys(userSocketMap));
     });
 });
@@ -97,8 +98,15 @@ io.on("connection", (socket) => {
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    connectionString: process.env.POSTGRES_URL,
-})
+    user: process.env.USER_POSTGRE,
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD,
+    port: 5432,
+    ssl: {
+        rejectUnauthorized: false,
+    }
+});
 
 pool.connect((err, client, release) => {
     if (err) {
@@ -112,3 +120,7 @@ pool.connect((err, client, release) => {
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+export { app, io, server };
+export const getReceiverSocketId = (receiverId) => {
+    return userSocketMap[receiverId];
+};
