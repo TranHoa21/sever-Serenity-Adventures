@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
 
-    origin: ['https://serenity-adventures-demo.vercel.app', 'https://admin-serenity-adventures.vercel.app', 'http://localhost:3000', 'http://localhost:3002'],
+    origin: ['https://serenity-adventures-demo.vercel.app', 'https://serenity-adventures-admin.vercel.app', 'http://localhost:3000', 'http://localhost:3002'],
     credentials: true
 }));
 
@@ -26,7 +26,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
 
-        origin: ["https://serenity-adventures-demo.vercel.app/", "https://admin-serenity-adventures.vercel.app", 'http://localhost:3000', 'http://localhost:3002'],
+        origin: ["https://serenity-adventures-demo.vercel.app/", "https://serenity-adventures-admin.vercel.app", 'http://localhost:3000', 'http://localhost:3002'],
         methods: ["GET", "POST"],
         credentials: true
     },
