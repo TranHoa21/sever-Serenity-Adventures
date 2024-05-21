@@ -13,18 +13,20 @@ const port = process.env.PORT || 10000;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: ['https://clinet-serenity-adventures.vercel.app', 'https://admin-serenity-adventures-2yw6gnlcv-tranhoa21s-projects.vercel.app', "http://localhost:3000"],
+
+    origin: ['https://serenity-adventures-demo.vercel.app', 'https://admin-serenity-adventures.vercel.app', 'http://localhost:3000', 'http://localhost:3002'],
     credentials: true
 }));
 
 initRouter(app);
 app.get('/', (req, res) => {
-  res.send('server ready!')
+    res.send('server ready!')
 })
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ["https://clinet-serenity-adventures.vercel.app", "https://admin-serenity-adventures-2yw6gnlcv-tranhoa21s-projects.vercel.app", "http://localhost:3000"],
+
+        origin: ["https://serenity-adventures-demo.vercel.app/", "https://admin-serenity-adventures.vercel.app", 'http://localhost:3000', 'http://localhost:3002'],
         methods: ["GET", "POST"],
         credentials: true
     },
@@ -125,4 +127,4 @@ server.listen(port, () => {
 export { app, io, server };
 export const getReceiverSocketId = (receiverId) => {
     return userSocketMap[receiverId];
-};
+}
